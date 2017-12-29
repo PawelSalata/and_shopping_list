@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools">
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto"
+    >
 
     <data>
 
@@ -8,6 +11,9 @@
         <variable
             name="viewModel"
             type="com.pawelsalata.shoppinglist.ui.main.MainActivityViewModel"/>
+        <variable
+            name="pagerAdapter"
+            type="com.pawelsalata.shoppinglist.ui.common.PagerAdapter"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -17,7 +23,20 @@
         android:background="@android:color/white"
         tools:context=".ui.main.MainActivity">
 
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
+            bind:adapter="@{pagerAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
+            <android.support.design.widget.TabLayout
+                android:id="@+id/tabLayout"
+                bind:viewPager="@{viewPager}"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top" />
+
+        </android.support.v4.view.ViewPager>
 
     </android.support.constraint.ConstraintLayout>
 </layout>

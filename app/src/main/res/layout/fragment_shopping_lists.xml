@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:bind="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -26,15 +27,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
-        <android.support.design.widget.FloatingActionButton
+        <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/addListFAB"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_margin="10dp"
-            android:src="@android:drawable/ic_input_add"
+            android:src="@drawable/ic_note_add_white_24dp"
             app:layout_constraintBottom_toBottomOf="parent"
             android:visibility="@{viewModel.isAddListFABVisible() ? View.VISIBLE : View.GONE}"
-            android:onClick="@{(view) -> listener.onAddListClick(view)}"
+            bind:onClick="@{(view) -> listener.onAddListClick(view)}"
             app:layout_constraintEnd_toEndOf="parent" />
 
     </android.support.constraint.ConstraintLayout>

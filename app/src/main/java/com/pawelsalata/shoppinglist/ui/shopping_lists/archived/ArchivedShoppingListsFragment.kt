@@ -11,11 +11,15 @@ import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.model.ShoppingList
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
+import com.pawelsalata.shoppinglist.ui.shopping_lists.active.ActiveShoppingListsFragment
 
 /**
  * Created by LETTUCE on 29.12.2017.
  */
 class ArchivedShoppingListsFragment : Fragment(), ShoppingListsInterface.View {
+    companion object {
+        val TAG = ArchivedShoppingListsFragment::class.java.simpleName
+    }
 
     private lateinit var viewBinding: FragmentShoppingListsBinding
     private lateinit var viewModel: ArchivedShoppingListsViewModel

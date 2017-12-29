@@ -1,8 +1,7 @@
 apply plugin: 'com.android.application'
-
 apply plugin: 'kotlin-android'
-
 apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 26
@@ -26,23 +25,25 @@ android {
     }
 }
 
-ext.supportLibVersion = '26.1.0'
-ext.leakCanaryVersion = '1.5.4'
+ext.support_lib_version = '26.1.0'
+ext.leak_canary_version = '1.5.4'
 
 dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
 
     //support
-    implementation "com.android.support:appcompat-v7:$supportLibVersion"
-    implementation "com.android.support:cardview-v7:$supportLibVersion"
-    implementation "com.android.support:recyclerview-v7:$supportLibVersion"
-    implementation "com.android.support:design:$supportLibVersion"
+    implementation "com.android.support:appcompat-v7:$support_lib_version"
+    implementation "com.android.support:cardview-v7:$support_lib_version"
+    implementation "com.android.support:recyclerview-v7:$support_lib_version"
+    implementation "com.android.support:design:$support_lib_version"
+
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
 
     //constraint
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
 
     //architecture components
-    kapt "com.android.databinding:compiler:3.1.0-alpha06"
+    kapt "com.android.databinding:compiler:$android_plugin_version"
     implementation "android.arch.lifecycle:extensions:1.0.0"
     implementation "android.arch.lifecycle:reactivestreams:1.0.0"
     implementation "android.arch.persistence.room:rxjava2:1.0.0"
@@ -60,8 +61,8 @@ dependencies {
     implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.+'
 
     //Leak Cannary
-    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leakCanaryVersion"
-    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leakCanaryVersion"
+    debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"
+    releaseImplementation "com.squareup.leakcanary:leakcanary-android-no-op:$leak_canary_version"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     testImplementation 'junit:junit:4.12'

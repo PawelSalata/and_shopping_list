@@ -16,6 +16,9 @@ import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
  * Created by LETTUCE on 29.12.2017.
  */
 class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View{
+    companion object {
+        val TAG = ActiveShoppingListsFragment::class.java.simpleName
+    }
 
     private lateinit var viewBinding: FragmentShoppingListsBinding
     private lateinit var viewModel: ActiveShoppingListsViewModel

@@ -1,5 +1,6 @@
-package com.pawelsalata.shoppinglist.utils
+package com.pawelsalata.shoppinglist.utils.extensions
 
+import android.util.Log
 import android.view.View
 
 /**
@@ -11,4 +12,8 @@ fun View.visible() {
 
 fun View.gone() {
     visibility = View.GONE
+}
+
+fun Any.logd(message: String?) {
+    Log.d(javaClass.simpleName, message)
 }
