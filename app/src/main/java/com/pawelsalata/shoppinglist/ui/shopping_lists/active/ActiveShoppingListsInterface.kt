@@ -1,6 +1,6 @@
 package com.pawelsalata.shoppinglist.ui.shopping_lists.active
 
-import com.pawelsalata.shoppinglist.ui.ShoppingListsInterface
+import android.view.View
 
 /**
  * Created by LETTUCE on 29.12.2017.
@@ -8,6 +8,6 @@ import com.pawelsalata.shoppinglist.ui.ShoppingListsInterface
 interface ActiveShoppingListsInterface {
 
     interface UserActions {
-        fun onAddListClick(v: ShoppingListsInterface.View)
+        fun onAddListClick(v: View)
     }
 }

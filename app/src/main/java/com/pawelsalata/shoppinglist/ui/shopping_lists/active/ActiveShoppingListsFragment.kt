@@ -1,26 +1,41 @@
 package com.pawelsalata.shoppinglist.ui.shopping_lists.active
 
+import android.arch.lifecycle.ViewModelProviders
+import android.databinding.DataBindingUtil
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.view.LayoutInflater
 import android.view.View
+import android.view.ViewGroup
+import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.model.ShoppingList
-import com.pawelsalata.shoppinglist.ui.ShoppingListsInterface
-import com.pawelsalata.shoppinglist.utils.visible
-import kotlinx.android.synthetic.main.fragment_shopping_lists.*
+import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
+import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
 
 /**
  * Created by LETTUCE on 29.12.2017.
  */
 class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View{
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        addListFAB.visible()
-        addListFAB.setOnClickListener { addShoppingList() }
+    private lateinit var viewBinding: FragmentShoppingListsBinding
+    private lateinit var viewModel: ActiveShoppingListsViewModel
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        DataBindingUtil.inflate<FragmentShoppingListsBinding>(
+                inflater,
+                R.layout.fragment_shopping_lists,
+                container,
+                false)
+                .also { viewBinding = it!! }
+        ViewModelProviders.of(this).get(ActiveShoppingListsViewModel::class.java)
+                .also { viewModel = it }
+        viewBinding.viewModel = viewModel
+        viewBinding.listener = viewModel
+        return viewBinding.root
     }
 
-    fun addShoppingList() {
-
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
     }
 
     override fun openShoppingList(shoppingList: ShoppingList) {

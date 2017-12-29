@@ -5,6 +5,6 @@ import android.arch.lifecycle.ViewModel
 /**
  * Created by LETTUCE on 29.12.2017.
  */
-abstract class ShoppingListsViewModel : ViewModel() {
+abstract class BaseShoppingListsViewModel : ViewModel() {
     abstract fun isAddListFABVisible(): Boolean
 }
