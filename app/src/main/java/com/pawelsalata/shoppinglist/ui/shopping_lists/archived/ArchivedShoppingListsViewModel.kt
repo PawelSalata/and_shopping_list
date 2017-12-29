@@ -1,7 +1,7 @@
 package com.pawelsalata.shoppinglist.ui.shopping_lists.archived
 
 import android.arch.lifecycle.MutableLiveData
-import com.pawelsalata.shoppinglist.data.model.ShoppingList
+import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.ui.shopping_lists.BaseShoppingListsViewModel
 
 /**

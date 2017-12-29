@@ -1,7 +1,6 @@
 package com.pawelsalata.shoppinglist.ui.shopping_lists
 
-import android.view.View
-import com.pawelsalata.shoppinglist.data.model.ShoppingList
+import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 
 /**
  * Created by LETTUCE on 29.12.2017.

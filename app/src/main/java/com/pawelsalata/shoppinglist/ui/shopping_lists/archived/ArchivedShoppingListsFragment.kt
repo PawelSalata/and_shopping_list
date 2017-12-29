@@ -8,10 +8,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pawelsalata.shoppinglist.R
-import com.pawelsalata.shoppinglist.data.model.ShoppingList
+import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
-import com.pawelsalata.shoppinglist.ui.shopping_lists.active.ActiveShoppingListsFragment
 
 /**
  * Created by LETTUCE on 29.12.2017.
