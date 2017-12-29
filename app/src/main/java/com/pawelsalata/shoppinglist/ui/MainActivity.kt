@@ -1,7 +1,8 @@
-package com.pawelsalata.shoppinglist
+package com.pawelsalata.shoppinglist.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.pawelsalata.shoppinglist.R
 
 class MainActivity : AppCompatActivity() {
 
