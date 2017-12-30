@@ -70,9 +70,9 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View{
     }
 
     private fun initRecyclerView() {
+        shoppingListsRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         shoppingListsAdapter = ShoppingListsRVAdapter(ArrayList())
         shoppingListsRV.adapter = shoppingListsAdapter
-        shoppingListsRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
         shoppingListsRV.addItemDecoration(RecyclerViewMargin(40, shoppingListsAdapter.itemCount, LinearLayoutManager.VERTICAL))
     }
 }
