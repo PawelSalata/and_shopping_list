@@ -22,17 +22,20 @@ class ShoppingItemsRVAdapter(var shoppingItems: MutableList<Item>) : BaseRVAdapt
             it.text.clear()
         }
         holder.itemView.shoppingItemET.onFocusChangeListener = View.OnFocusChangeListener { view, hasFocus ->
-            if (!hasFocus) {
+            if (!hasFocus && position  <= itemCount) {
                 shoppingItems[position].text = (view as EditText).text.toString()
             }
         }
     }
+
+    
 
     fun addListItem(item: Item) {
 //        if (itemCount > 0) {
 //            shoppingItems[0].text =
 //        }
         shoppingItems.add(0, item)
+        notifyDataSetChanged()
     }
 
     override fun getObjForPosition(position: Int): Any {

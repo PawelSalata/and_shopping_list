@@ -9,5 +9,6 @@ interface EditableShoppingListInterface {
 
     interface UserActions {
         fun onAddItemClick(v: View)
+        fun onSaveListClick(v: View)
     }
 }

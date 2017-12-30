@@ -49,10 +49,10 @@ class EditableShoppingListActivity : AppCompatActivity(),
 //        })
 //    }
 //
-//    override fun onStop() {
-//        viewModel.shoppingListLiveData.removeObservers(this)
-//        super.onStop()
-//    }
+    override fun onStop() {
+//        viewModel.saveShoppingList()
+        super.onStop()
+    }
 
     private fun setupToolbar(title: String?) {
         toolbar_title.setText(title.toString())
@@ -60,7 +60,12 @@ class EditableShoppingListActivity : AppCompatActivity(),
 
     override fun onAddItemClick(v: View) {
         shoppingItemsAdapter.addListItem(viewModel.createItem())
-        shoppingItemsAdapter.notifyDataSetChanged()
+//        shoppingItemsAdapter.notifyDataSetChanged()
+    }
+
+    override fun onSaveListClick(v: View) {
+        viewModel.shoppingListLiveData.shoppingList.name = toolbar_title.text.toString()
+        viewModel.saveShoppingList()
     }
 
     private fun setupRecyclerView() {

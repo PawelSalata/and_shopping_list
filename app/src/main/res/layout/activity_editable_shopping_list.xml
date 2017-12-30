@@ -26,20 +26,48 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:background="@color/colorPrimary"
             android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
             app:layout_constraintTop_toTopOf="parent">
 
-            <EditText
-                android:id="@+id/toolbar_title"
-                android:layout_width="wrap_content"
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:textColor="@android:color/white"
-                android:textSize="23sp"
-                android:textStyle="bold"
-                android:transitionName="@string/transition_list_name"
-                tools:text="List name" />
+                android:layout_margin="6dp">
+
+                <EditText
+                    android:id="@+id/toolbar_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/valuesBlack"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:textColor="@color/valuesBlack"
+                    android:textSize="23sp"
+                    android:textStyle="bold"
+                    android:transitionName="@string/transition_list_name"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/saveBtn"
+                    android:layout_marginEnd="13dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:text="List name" />
+
+                <Button
+                    android:id="@+id/saveBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@color/colorAccent"
+                    bind:onClick="@{(view) -> listener.onSaveListClick(view)}"
+                    android:text="@string/save"
+                    android:textColor="@android:color/white"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+
+                    />
+
+            </android.support.constraint.ConstraintLayout>
 
         </android.support.v7.widget.Toolbar>
 
@@ -57,8 +85,8 @@
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
-            app:fab_colorNormal="@color/colorAccent"
             android:src="@drawable/ic_add_white_24dp"
+            app:fab_colorNormal="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             bind:onClick="@{(view) -> listener.onAddItemClick(view)}" />

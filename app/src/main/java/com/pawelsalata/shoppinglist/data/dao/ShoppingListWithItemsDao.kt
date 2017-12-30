@@ -24,14 +24,14 @@ abstract class ShoppingListWithItemsDao {
         shoppingListWithItems.itemsList.forEach {
             it.shoppingListId = shoppingListWithItems.shoppingList.id
         }
-        _update(shoppingListWithItems.shoppingList)
-        _updateAll(shoppingListWithItems.itemsList)
+        _insert(shoppingListWithItems.shoppingList)
+        _insertAll(shoppingListWithItems.itemsList)
     }
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     internal abstract fun _insert(shoppingList: ShoppingList)
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     internal abstract fun _insertAll(items: List<Item>)
 
     @Update
@@ -39,7 +39,6 @@ abstract class ShoppingListWithItemsDao {
 
     @Update
     internal abstract fun _updateAll(items: List<Item>)
-
 
 
 //    @Update

@@ -23,6 +23,10 @@ class EditableShoppingListViewModel(application: Application) : AndroidViewModel
         return Item("", shoppingListLiveData.shoppingList.id)
     }
 
+    fun saveShoppingList() {
+        ShoppingListsRepository.updateShoppingListWithItems(getApplication(), shoppingListLiveData)
+    }
+
 //    override fun onAddItemClick(v: View) {
 //        shoppingListLiveData.value?.let {
 //             it.itemsList.add(Item("", it.shoppingList.id))
