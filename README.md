@@ -15,3 +15,4 @@ Things to fix:
   - deleting shopping lists and items
   - reordering list items
   - add updatedAtTimestamp field and use it over timestamp
+- naming
