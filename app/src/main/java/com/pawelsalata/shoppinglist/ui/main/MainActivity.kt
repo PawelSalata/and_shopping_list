@@ -2,8 +2,8 @@ package com.pawelsalata.shoppinglist.ui.main
 
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.databinding.ActivityMainBinding
 import com.pawelsalata.shoppinglist.ui.common.PagerAdapter

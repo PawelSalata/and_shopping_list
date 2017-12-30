@@ -12,14 +12,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.pawelsalata.shoppinglist.R
-import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
 import com.pawelsalata.shoppinglist.ui.components.AndroidViewModelFactory
 import com.pawelsalata.shoppinglist.ui.components.RecyclerViewMargin
 import com.pawelsalata.shoppinglist.ui.main.MainActivity
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
-import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsRVAdapter
 import com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable.EditableShoppingListActivity
 import com.pawelsalata.shoppinglist.ui.shopping_lists.details.show.ShowShoppingListActivity
 import com.pawelsalata.shoppinglist.utils.extensions.launchActivity

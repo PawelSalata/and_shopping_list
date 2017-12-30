@@ -2,8 +2,6 @@ package com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
-import android.arch.lifecycle.LiveData
-import android.view.View
 import com.pawelsalata.shoppinglist.data.entities.Item
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 import com.pawelsalata.shoppinglist.data.repository.ShoppingListsRepository

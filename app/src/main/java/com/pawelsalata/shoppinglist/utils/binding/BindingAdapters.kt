@@ -4,8 +4,6 @@ import android.databinding.BindingAdapter
 import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.view.View
-import com.pawelsalata.shoppinglist.R.id.tabLayout
-import com.pawelsalata.shoppinglist.R.id.viewPager
 import com.pawelsalata.shoppinglist.ui.common.PagerAdapter
 
 /**

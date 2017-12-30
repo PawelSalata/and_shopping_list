@@ -19,7 +19,6 @@ import com.pawelsalata.shoppinglist.ui.components.AndroidViewModelFactory
 import com.pawelsalata.shoppinglist.ui.components.RecyclerViewMargin
 import com.pawelsalata.shoppinglist.ui.main.MainActivity
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
-import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsRVAdapter
 import com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable.EditableShoppingListActivity
 import com.pawelsalata.shoppinglist.utils.extensions.launchActivity
 import com.pawelsalata.shoppinglist.utils.extensions.logd

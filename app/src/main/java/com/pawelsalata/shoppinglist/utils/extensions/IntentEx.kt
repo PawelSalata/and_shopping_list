@@ -1,7 +1,6 @@
 package com.pawelsalata.shoppinglist.utils.extensions
 
 import android.app.Activity
-import android.content.ClipData.newIntent
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
