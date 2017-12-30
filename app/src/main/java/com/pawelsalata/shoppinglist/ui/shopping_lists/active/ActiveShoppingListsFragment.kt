@@ -11,6 +11,8 @@ import android.view.View
 import android.view.ViewGroup
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.entities.ShoppingList
+import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
+import com.pawelsalata.shoppinglist.data.repository.ShoppingListsRepository
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
 import com.pawelsalata.shoppinglist.ui.components.AndroidViewModelFactory
 import com.pawelsalata.shoppinglist.ui.components.RecyclerViewMargin
@@ -22,7 +24,8 @@ import kotlinx.android.synthetic.main.fragment_shopping_lists.*
 /**
  * Created by LETTUCE on 29.12.2017.
  */
-class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View{
+class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View, ShoppingListsInterface.UserActions {
+
     companion object {
         val TAG = ActiveShoppingListsFragment::class.java.simpleName
     }
@@ -65,13 +68,17 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View{
         super.onStop()
     }
 
+    override fun onShoppingListClick(shoppingListWithItems: ShoppingListWithItems) {
+        ShoppingListsRepository.archiveShoppingList(context!!, shoppingListWithItems)
+    }
+
     override fun openShoppingList(shoppingList: ShoppingList) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+
     }
 
     private fun initRecyclerView() {
         shoppingListsRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        shoppingListsAdapter = ShoppingListsRVAdapter(ArrayList())
+        shoppingListsAdapter = ShoppingListsRVAdapter(ArrayList(), this)
         shoppingListsRV.adapter = shoppingListsAdapter
         shoppingListsRV.addItemDecoration(RecyclerViewMargin(40, shoppingListsAdapter.itemCount, LinearLayoutManager.VERTICAL))
     }

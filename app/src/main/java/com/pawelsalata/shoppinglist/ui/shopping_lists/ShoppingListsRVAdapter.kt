@@ -9,10 +9,11 @@ import com.pawelsalata.shoppinglist.ui.components.recycler_view.ViewHolder
 /**
  * Created by LETTUCE on 30.12.2017.
  */
-class ShoppingListsRVAdapter(var shoppingLists: List<ShoppingListWithItems>) : BaseRVAdapter() {
+class ShoppingListsRVAdapter(var shoppingLists: List<ShoppingListWithItems>, val listener: ShoppingListsInterface.UserActions) : BaseRVAdapter() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
+        holder.itemView.setOnClickListener { listener.onShoppingListClick(shoppingLists[holder.adapterPosition]) }
     }
 
     override fun getObjForPosition(position: Int): Any {

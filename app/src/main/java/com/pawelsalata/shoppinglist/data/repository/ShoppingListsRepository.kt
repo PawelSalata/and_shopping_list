@@ -26,6 +26,11 @@ object ShoppingListsRepository {
                 .insertShoppingListWithItems(shoppingList)
     }
 
+    fun archiveShoppingList(context: Context, shoppingListWithItems: ShoppingListWithItems) {
+        shoppingListWithItems.shoppingList.archived = true
+        getShoppingListDao(context)._update(shoppingListWithItems.shoppingList)
+    }
+
     private fun getShoppingListDao(context: Context): ShoppingListWithItemsDao {
         return AppDatabase.getAppDatabase(context)
                 .getShoppingListWithItemsDao()

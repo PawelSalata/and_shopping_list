@@ -20,11 +20,27 @@ abstract class ShoppingListWithItemsDao {
         _insertAll(shoppingListWithItems.itemsList)
     }
 
-    @Insert
-    abstract fun _insert(shoppingList: ShoppingList)
+    fun updateShoppingListWithItems(shoppingListWithItems: ShoppingListWithItems) {
+        shoppingListWithItems.itemsList.forEach {
+            it.shoppingListId = shoppingListWithItems.shoppingList.id
+        }
+        _update(shoppingListWithItems.shoppingList)
+        _updateAll(shoppingListWithItems.itemsList)
+    }
 
     @Insert
-    abstract fun _insertAll(items: List<Item>)
+    internal abstract fun _insert(shoppingList: ShoppingList)
+
+    @Insert
+    internal abstract fun _insertAll(items: List<Item>)
+
+    @Update
+    internal abstract fun _update(shoppingList: ShoppingList)
+
+    @Update
+    internal abstract fun _updateAll(items: List<Item>)
+
+
 
 //    @Update
 //    abstract fun _update(vararg shoppingListsWithItems: ShoppingListWithItems)
