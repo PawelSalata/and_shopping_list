@@ -20,6 +20,7 @@ import com.pawelsalata.shoppinglist.ui.components.RecyclerViewMargin
 import com.pawelsalata.shoppinglist.ui.main.MainActivity
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsRVAdapter
+import com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable.EditableShoppingListActivity
 import com.pawelsalata.shoppinglist.ui.shopping_lists.details.show.ShowShoppingListActivity
 import com.pawelsalata.shoppinglist.utils.extensions.launchActivity
 import com.pawelsalata.shoppinglist.utils.extensions.logd
@@ -28,14 +29,14 @@ import kotlinx.android.synthetic.main.fragment_shopping_lists.*
 /**
  * Created by LETTUCE on 29.12.2017.
  */
-class ArchivedShoppingListsFragment : Fragment(), ShoppingListsInterface.View, ShoppingListsInterface.UserActions {
+class ArchivedShoppingListsFragment : Fragment(), ShoppingListsInterface.UserActions {
     companion object {
         val TAG = ArchivedShoppingListsFragment::class.java.simpleName
     }
 
     private lateinit var viewBinding: FragmentShoppingListsBinding
     private lateinit var viewModel: ArchivedShoppingListsViewModel
-    private lateinit var shoppingListsAdapter: ShoppingListsRVAdapter
+    private lateinit var shoppingListsAdapter: ArchivedShoppingListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         DataBindingUtil.inflate<FragmentShoppingListsBinding>(
@@ -73,16 +74,15 @@ class ArchivedShoppingListsFragment : Fragment(), ShoppingListsInterface.View, S
     override fun onShoppingListClick(shoppingListWithItems: ShoppingListWithItems, transition: Pair<View, String>) {
         val options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(activity as MainActivity, transition)
-        activity?.launchActivity<ShowShoppingListActivity>(options.toBundle())
-    }
-
-    override fun openShoppingList(shoppingList: ShoppingList) {
-
+        activity?.launchActivity<ShowShoppingListActivity>(options.toBundle()) {
+            putExtra(EditableShoppingListActivity.EXTRA_SHOPPING_LIST_ID, shoppingListWithItems.shoppingList.id)
+            putExtra(EditableShoppingListActivity.EXTRA_SHOPPING_LIST_NAME, shoppingListWithItems.shoppingList.name)
+        }
     }
 
     private fun initRecyclerView() {
         shoppingListsRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        shoppingListsAdapter = ShoppingListsRVAdapter(ArrayList(), this)
+        shoppingListsAdapter = ArchivedShoppingListAdapter(ArrayList(), this)
         shoppingListsRV.adapter = shoppingListsAdapter
         shoppingListsRV.addItemDecoration(RecyclerViewMargin(40, shoppingListsAdapter.itemCount, LinearLayoutManager.VERTICAL))
     }

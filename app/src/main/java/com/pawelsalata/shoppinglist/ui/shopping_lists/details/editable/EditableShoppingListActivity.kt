@@ -1,6 +1,5 @@
 package com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable
 
-import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -16,8 +15,7 @@ import kotlinx.android.synthetic.main.activity_editable_shopping_list.*
 /**
  * Created by LETTUCE on 30.12.2017.
  */
-class EditableShoppingListActivity : AppCompatActivity(),
-        EditableShoppingListInterface.UserActions  {
+class EditableShoppingListActivity : AppCompatActivity(), EditableShoppingListInterface.UserActions {
     companion object {
         val EXTRA_SHOPPING_LIST_ID = "com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable.EXTRA_SHOPPING_LIST_ID"
         val EXTRA_SHOPPING_LIST_NAME = "com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable.EXTRA_SHOPPING_LIST_NAME"
@@ -25,7 +23,7 @@ class EditableShoppingListActivity : AppCompatActivity(),
 
     private lateinit var viewModel: EditableShoppingListViewModel
     private lateinit var viewBinding: ActivityEditableShoppingListBinding
-    private lateinit var shoppingItemsAdapter: ShoppingItemsRVAdapter
+    private lateinit var shoppingItemsAdapter: EditableShoppingItemsRVAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -70,7 +68,7 @@ class EditableShoppingListActivity : AppCompatActivity(),
 
     private fun setupRecyclerView() {
         shoppingItemsRV.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        shoppingItemsAdapter = ShoppingItemsRVAdapter(viewModel.shoppingListLiveData.itemsList)
+        shoppingItemsAdapter = EditableShoppingItemsRVAdapter(viewModel.shoppingListLiveData.itemsList)
         shoppingItemsRV.adapter = shoppingItemsAdapter
         shoppingItemsRV.addItemDecoration(RecyclerViewMargin(20, shoppingItemsAdapter.itemCount, LinearLayoutManager.VERTICAL))
     }

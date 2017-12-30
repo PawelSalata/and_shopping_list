@@ -36,7 +36,7 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View, Sho
 
     private lateinit var viewBinding: FragmentShoppingListsBinding
     private lateinit var viewModel: ActiveShoppingListsViewModel
-    private lateinit var shoppingListsAdapter: ShoppingListsRVAdapter
+    private lateinit var shoppingListsAdapter: ActiveShoppingListAdapter
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         DataBindingUtil.inflate<FragmentShoppingListsBinding>(
@@ -86,9 +86,13 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View, Sho
 
     }
 
+    override fun archiveList(shoppingListWithItems: ShoppingListWithItems) {
+        viewModel.archivdeList(shoppingListWithItems)
+    }
+
     private fun initRecyclerView() {
         shoppingListsRV.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
-        shoppingListsAdapter = ShoppingListsRVAdapter(ArrayList(), this)
+        shoppingListsAdapter = ActiveShoppingListAdapter(ArrayList(), this)
         shoppingListsRV.adapter = shoppingListsAdapter
         shoppingListsRV.addItemDecoration(RecyclerViewMargin(40, shoppingListsAdapter.itemCount, LinearLayoutManager.VERTICAL))
     }

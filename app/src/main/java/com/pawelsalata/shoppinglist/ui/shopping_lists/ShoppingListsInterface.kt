@@ -15,5 +15,6 @@ interface ShoppingListsInterface {
 
     interface UserActions {
         fun onShoppingListClick(shoppingListWithItems: ShoppingListWithItems, transition: Pair<AndroidView, String>)
+        fun archiveList(shoppingListWithItems: ShoppingListWithItems) {}
     }
 }

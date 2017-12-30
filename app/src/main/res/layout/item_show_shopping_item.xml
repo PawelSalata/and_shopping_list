@@ -2,6 +2,7 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
+
         <variable
             name="obj"
             type="com.pawelsalata.shoppinglist.data.entities.Item" />
@@ -13,16 +14,15 @@
         android:layout_height="wrap_content"
         android:padding="4dp">
 
-        <EditText
-            android:id="@+id/shoppingItemET"
-            android:minWidth="100dp"
-            android:text="@{obj.text}"
+        <TextView
+            android:id="@+id/shoppingItemTV"
             android:layout_width="match_parent"
-            android:textAlignment="viewStart"
+            android:layout_height="wrap_content"
             android:gravity="start"
             android:maxLines="1"
-            android:inputType="text"
-            android:layout_height="wrap_content" />
+            android:minWidth="100dp"
+            android:text="@{obj.text}"
+            android:textAlignment="viewStart" />
 
     </android.support.constraint.ConstraintLayout>
 

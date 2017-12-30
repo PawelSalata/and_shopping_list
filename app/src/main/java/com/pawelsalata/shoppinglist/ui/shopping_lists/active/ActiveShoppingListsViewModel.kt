@@ -25,4 +25,8 @@ class ActiveShoppingListsViewModel(application: Application) : BaseShoppingLists
         shoppingListWithItems.itemsList = ArrayList()
         ShoppingListsRepository.addShoppingList(getApplication(), shoppingListWithItems)
     }
+
+    fun archivdeList(shoppingListWithItems: ShoppingListWithItems) {
+        ShoppingListsRepository.archiveShoppingList(getApplication(), shoppingListWithItems)
+    }
 }

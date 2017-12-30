@@ -37,7 +37,6 @@ dependencies {
     implementation "com.android.support:recyclerview-v7:$support_lib_version"
     implementation "com.android.support:design:$support_lib_version"
 
-    implementation 'com.getbase:floatingactionbutton:1.10.1'
 
     //constraint
     implementation 'com.android.support.constraint:constraint-layout:1.0.2'
@@ -52,13 +51,10 @@ dependencies {
     implementation "android.arch.persistence.room:runtime:1.0.0"
     kapt "android.arch.persistence.room:compiler:1.0.0"
 
-    //reactive
-    implementation 'io.reactivex.rxjava2:rxandroid:2.0.1'
-    implementation 'io.reactivex.rxjava2:rxkotlin:2.1.0'
+    //ui
+    implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
+    implementation 'com.getbase:floatingactionbutton:1.10.1'
 
-    //images
-    implementation 'com.squareup.picasso:picasso:2.5.2'
-    implementation 'com.theartofdev.edmodo:android-image-cropper:2.6.+'
 
     //Leak Cannary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"

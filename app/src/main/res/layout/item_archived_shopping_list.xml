@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:card_view="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
@@ -16,11 +15,11 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
-        android:elevation="2dp"
         android:background="@android:color/white"
-        >
+        android:elevation="2dp">
 
         <android.support.v7.widget.CardView
+            android:id="@+id/cardView"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
@@ -35,10 +34,10 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"
                     android:text="@{obj.shoppingList.name}"
-                    android:transitionName="@string/transition_list_name"
                     android:textColor="@color/valuesBlack"
                     android:textSize="22sp"
                     android:textStyle="bold"
+                    android:transitionName="@string/transition_list_name"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
