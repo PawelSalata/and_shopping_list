@@ -4,4 +4,8 @@
 
     <string name="active">Active</string>
     <string name="archived">Archived</string>
+
+    //transitions
+    <string name="transition_list_name">transistion_list_name</string>
+    <string name="save">Save</string>
 </resources>

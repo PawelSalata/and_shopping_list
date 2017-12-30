@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="obj"
+            type="com.pawelsalata.shoppinglist.data.entities.Item" />
+    </data>
+
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="4dp">
+
+        <EditText
+            android:id="@+id/shoppingItemET"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:inputType="text"
+            android:maxLines="1"
+            android:minWidth="100dp"
+            android:text="@{obj.text}"
+            android:textAlignment="viewStart" />
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>

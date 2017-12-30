@@ -59,4 +59,8 @@ abstract class ShoppingListWithItemsDao {
     @Transaction
     @Query("SELECT * FROM shopping_lists WHERE archived = 1 ORDER BY timestamp DESC")
     abstract fun getArchivedShoppingListsWithItems(): LiveData<List<ShoppingListWithItems>>
+
+    @Transaction
+    @Query("SELECT * FROM shopping_lists WHERE id = :id")
+    abstract fun getShoppingList(id: Int): ShoppingListWithItems
 }

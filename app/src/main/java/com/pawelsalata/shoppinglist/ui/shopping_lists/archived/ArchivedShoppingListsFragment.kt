@@ -4,7 +4,9 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.app.Fragment
+import android.support.v4.util.Pair
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -12,13 +14,14 @@ import android.view.ViewGroup
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
-import com.pawelsalata.shoppinglist.data.repository.ShoppingListsRepository
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
 import com.pawelsalata.shoppinglist.ui.components.AndroidViewModelFactory
 import com.pawelsalata.shoppinglist.ui.components.RecyclerViewMargin
+import com.pawelsalata.shoppinglist.ui.main.MainActivity
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsRVAdapter
-import com.pawelsalata.shoppinglist.ui.shopping_lists.active.ActiveShoppingListsViewModel
+import com.pawelsalata.shoppinglist.ui.shopping_lists.details.show.ShowShoppingListActivity
+import com.pawelsalata.shoppinglist.utils.extensions.launchActivity
 import com.pawelsalata.shoppinglist.utils.extensions.logd
 import kotlinx.android.synthetic.main.fragment_shopping_lists.*
 
@@ -67,8 +70,10 @@ class ArchivedShoppingListsFragment : Fragment(), ShoppingListsInterface.View, S
         super.onStop()
     }
 
-    override fun onShoppingListClick(shoppingListWithItems: ShoppingListWithItems) {
-//        ShoppingListsRepository.archiveShoppingList(context!!, shoppingListWithItems)
+    override fun onShoppingListClick(shoppingListWithItems: ShoppingListWithItems, transition: Pair<View, String>) {
+        val options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(activity as MainActivity, transition)
+        activity?.launchActivity<ShowShoppingListActivity>(options.toBundle())
     }
 
     override fun openShoppingList(shoppingList: ShoppingList) {

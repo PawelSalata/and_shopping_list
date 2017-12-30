@@ -1,10 +1,13 @@
 package com.pawelsalata.shoppinglist.ui.shopping_lists
 
-import com.pawelsalata.shoppinglist.BR.listener
+import android.support.v4.util.Pair
+import android.support.v4.view.ViewCompat
+import android.view.View
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 import com.pawelsalata.shoppinglist.ui.components.recycler_view.BaseRVAdapter
 import com.pawelsalata.shoppinglist.ui.components.recycler_view.ViewHolder
+import kotlinx.android.synthetic.main.item_shopping_list.view.*
 
 /**
  * Created by LETTUCE on 30.12.2017.
@@ -13,7 +16,8 @@ class ShoppingListsRVAdapter(var shoppingLists: List<ShoppingListWithItems>, val
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         super.onBindViewHolder(holder, position)
-        holder.itemView.setOnClickListener { listener.onShoppingListClick(shoppingLists[holder.adapterPosition]) }
+        val transitionListName = Pair.create(holder.itemView.listNameTV as View, ViewCompat.getTransitionName(holder.itemView.listNameTV))
+        holder.itemView.setOnClickListener { listener.onShoppingListClick(shoppingLists[holder.adapterPosition], transitionListName) }
     }
 
     override fun getObjForPosition(position: Int): Any {

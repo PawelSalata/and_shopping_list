@@ -4,7 +4,9 @@ import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
+import android.support.v4.app.ActivityOptionsCompat
 import android.support.v4.app.Fragment
+import android.support.v4.util.Pair
 import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
@@ -12,12 +14,14 @@ import android.view.ViewGroup
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
-import com.pawelsalata.shoppinglist.data.repository.ShoppingListsRepository
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
 import com.pawelsalata.shoppinglist.ui.components.AndroidViewModelFactory
 import com.pawelsalata.shoppinglist.ui.components.RecyclerViewMargin
+import com.pawelsalata.shoppinglist.ui.main.MainActivity
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsRVAdapter
+import com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable.EditableShoppingListActivity
+import com.pawelsalata.shoppinglist.utils.extensions.launchActivity
 import com.pawelsalata.shoppinglist.utils.extensions.logd
 import kotlinx.android.synthetic.main.fragment_shopping_lists.*
 
@@ -68,8 +72,14 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View, Sho
         super.onStop()
     }
 
-    override fun onShoppingListClick(shoppingListWithItems: ShoppingListWithItems) {
-        ShoppingListsRepository.archiveShoppingList(context!!, shoppingListWithItems)
+    override fun onShoppingListClick(shoppingListWithItems: ShoppingListWithItems, transition: Pair<View, String>) {
+//        ShoppingListsRepository.archiveShoppingList(context!!, shoppingListWithItems)
+        val options = ActivityOptionsCompat.
+                makeSceneTransitionAnimation(activity as MainActivity, transition)
+        activity?.launchActivity<EditableShoppingListActivity>(options.toBundle()) {
+            putExtra(EditableShoppingListActivity.EXTRA_SHOPPING_LIST_ID, shoppingListWithItems.shoppingList.id)
+            putExtra(EditableShoppingListActivity.EXTRA_SHOPPING_LIST_NAME, shoppingListWithItems.shoppingList.name)
+        }
     }
 
     override fun openShoppingList(shoppingList: ShoppingList) {

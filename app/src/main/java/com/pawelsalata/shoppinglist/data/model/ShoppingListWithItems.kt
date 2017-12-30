@@ -15,6 +15,6 @@ class ShoppingListWithItems {
     @Relation(parentColumn = "id",
             entityColumn = "shoppingListId",
             entity = Item::class)
-    var itemsList: List<Item> = ArrayList()
+    var itemsList: MutableList<Item> = ArrayList()
 
 }

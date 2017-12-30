@@ -25,18 +25,19 @@
         <android.support.v7.widget.RecyclerView
             android:id="@+id/shoppingListsRV"
             android:layout_width="match_parent"
-            android:padding="10dp"
             android:layout_height="match_parent"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <com.getbase.floatingactionbutton.FloatingActionButton
             android:id="@+id/addListFAB"
             android:layout_width="56dp"
             android:layout_height="56dp"
             android:layout_margin="16dp"
+            app:fab_colorNormal="@color/colorAccent"
             android:src="@drawable/ic_note_add_white_24dp"
             android:visibility="@{viewModel.isAddListFABVisible() ? View.VISIBLE : View.GONE}"
             app:layout_constraintBottom_toBottomOf="parent"

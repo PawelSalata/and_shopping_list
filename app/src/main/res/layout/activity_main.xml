@@ -32,6 +32,8 @@
             <android.support.design.widget.TabLayout
                 android:id="@+id/tabLayout"
                 bind:viewPager="@{viewPager}"
+                android:background="@color/colorPrimary"
+                app:tabTextColor="@android:color/white"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="top" />
