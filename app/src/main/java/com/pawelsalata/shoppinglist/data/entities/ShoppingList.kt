@@ -1,8 +1,10 @@
 package com.pawelsalata.shoppinglist.data.entities
 
 import android.arch.persistence.room.Entity
+import android.arch.persistence.room.Ignore
 import android.arch.persistence.room.Index
 import android.arch.persistence.room.PrimaryKey
+import com.pawelsalata.shoppinglist.utils.extensions.toFriendlyDate
 
 /**
  * Created by LETTUCE on 29.12.2017.
@@ -15,4 +17,9 @@ class ShoppingList(var name: String) {
     var id: Int = 0
     var archived: Boolean = false
     var timestamp: Long = System.currentTimeMillis()
+
+    @Ignore
+    fun getFriendlyDate(): String {
+        return timestamp.toFriendlyDate()
+    }
 }
