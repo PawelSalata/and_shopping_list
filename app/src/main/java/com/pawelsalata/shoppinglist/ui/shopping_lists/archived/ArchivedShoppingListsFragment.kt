@@ -10,6 +10,7 @@ import android.view.ViewGroup
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
+import com.pawelsalata.shoppinglist.ui.components.AndroidViewModelFactory
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
 
 /**
@@ -30,7 +31,8 @@ class ArchivedShoppingListsFragment : Fragment(), ShoppingListsInterface.View {
                 container,
                 false)
                 .also { viewBinding = it!! }
-        ViewModelProviders.of(this).get(ArchivedShoppingListsViewModel::class.java)
+        ViewModelProviders.of(this, AndroidViewModelFactory(activity?.application))
+                .get(ArchivedShoppingListsViewModel::class.java)
                 .also { viewModel = it }
         viewBinding.viewModel = viewModel
         return viewBinding.root

@@ -1,5 +1,6 @@
 package com.pawelsalata.shoppinglist.ui.shopping_lists.active
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.databinding.DataBindingUtil
 import android.os.Bundle
@@ -10,7 +11,9 @@ import android.view.ViewGroup
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
+import com.pawelsalata.shoppinglist.ui.components.AndroidViewModelFactory
 import com.pawelsalata.shoppinglist.ui.shopping_lists.ShoppingListsInterface
+import com.pawelsalata.shoppinglist.utils.extensions.logd
 
 /**
  * Created by LETTUCE on 29.12.2017.
@@ -30,7 +33,8 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View{
                 container,
                 false)
                 .also { viewBinding = it!! }
-        ViewModelProviders.of(this).get(ActiveShoppingListsViewModel::class.java)
+        ViewModelProviders.of(this, AndroidViewModelFactory(activity?.application))
+                .get(ActiveShoppingListsViewModel::class.java)
                 .also { viewModel = it }
         viewBinding.viewModel = viewModel
         viewBinding.listener = viewModel
@@ -39,6 +43,18 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View{
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onStart() {
+        super.onStart()
+        viewModel.shoppingListsLiveData.observe(this, Observer { list ->
+            logd("List size: " + list?.size)
+        })
+    }
+
+    override fun onStop() {
+        viewModel.shoppingListsLiveData.removeObservers(this)
+        super.onStop()
     }
 
     override fun openShoppingList(shoppingList: ShoppingList) {

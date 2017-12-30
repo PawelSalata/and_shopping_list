@@ -9,10 +9,12 @@ import com.pawelsalata.shoppinglist.data.entities.ShoppingList
  * Created by LETTUCE on 29.12.2017.
  */
 class ShoppingListWithItems {
-    @Embedded lateinit var shoppingList: ShoppingList
+    @Embedded
+    var shoppingList: ShoppingList = ShoppingList("")
 
     @Relation(parentColumn = "id",
-            entityColumn = "shoppingListId")
-    lateinit var itemsList: List<Item>
+            entityColumn = "shoppingListId",
+            entity = Item::class)
+    var itemsList: List<Item> = ArrayList()
 
 }
