@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainActivityNavigator {
 
-//    @Inject
+    @Inject
     lateinit var mainViewModel: MainViewModel
 
     @Inject
@@ -34,10 +34,7 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainAct
 
     override fun getBindingVariable() = BR.viewModel
 
-    override fun getViewModel(): MainViewModel {
-        mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        return mainViewModel
-    }
+    override fun getViewModel(): MainViewModel = mainViewModel
 
     override fun getLayoutId() = R.layout.activity_main
 }
