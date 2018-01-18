@@ -10,10 +10,7 @@
         <import type="android.view.View" />
         <variable
             name="viewModel"
-            type="com.pawelsalata.shoppinglist.ui.main.MainActivityViewModel"/>
-        <variable
-            name="pagerAdapter"
-            type="com.pawelsalata.shoppinglist.ui.common.PagerAdapter"/>
+            type="com.pawelsalata.shoppinglist.ui.main.MainViewModel"/>
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -25,7 +22,6 @@
 
         <android.support.v4.view.ViewPager
             android:id="@+id/viewPager"
-            bind:adapter="@{pagerAdapter}"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 

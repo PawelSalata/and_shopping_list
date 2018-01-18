@@ -1,7 +1,7 @@
 package com.pawelsalata.shoppinglist.ui.shopping_lists
 
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
-import com.pawelsalata.shoppinglist.ui.components.recycler_view.BaseRVAdapter
+import com.pawelsalata.shoppinglist.ui.base.BaseRVAdapter
 import com.pawelsalata.shoppinglist.ui.components.recycler_view.ViewHolder
 
 /**

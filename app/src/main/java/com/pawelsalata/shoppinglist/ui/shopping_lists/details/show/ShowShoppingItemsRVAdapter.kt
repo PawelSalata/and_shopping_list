@@ -2,7 +2,7 @@ package com.pawelsalata.shoppinglist.ui.shopping_lists.details.editable
 
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.entities.Item
-import com.pawelsalata.shoppinglist.ui.components.recycler_view.BaseRVAdapter
+import com.pawelsalata.shoppinglist.ui.base.BaseRVAdapter
 import com.pawelsalata.shoppinglist.ui.components.recycler_view.ViewHolder
 
 /**

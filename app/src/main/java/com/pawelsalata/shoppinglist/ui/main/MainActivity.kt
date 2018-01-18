@@ -1,42 +1,43 @@
 package com.pawelsalata.shoppinglist.ui.main
 
 import android.arch.lifecycle.ViewModelProviders
-import android.databinding.DataBindingUtil
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
+import com.pawelsalata.shoppinglist.BR
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.databinding.ActivityMainBinding
+import com.pawelsalata.shoppinglist.ui.base.BaseActivity
 import com.pawelsalata.shoppinglist.ui.common.PagerAdapter
 import com.pawelsalata.shoppinglist.ui.shopping_lists.active.ActiveShoppingListsFragment
 import com.pawelsalata.shoppinglist.ui.shopping_lists.archived.ArchivedShoppingListsFragment
-import kotlinx.android.synthetic.main.activity_main.*
+import javax.inject.Inject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainActivityNavigator {
 
-    private lateinit var viewModel: MainActivityViewModel
-    private lateinit var viewBinding: ActivityMainBinding
+//    @Inject
+    lateinit var mainViewModel: MainViewModel
+
+    @Inject
+    lateinit var pagerAdapter: PagerAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        DataBindingUtil.setContentView<ActivityMainBinding>(this, R.layout.activity_main)
-                .also { viewBinding = it!! }
-        ViewModelProviders.of(this).get(MainActivityViewModel::class.java)
-                .also { viewModel = it }
-        viewBinding.viewModel = viewModel
-        viewBinding.pagerAdapter = createPagerAdapter()
-
+        mainViewModel.navigator = this
         setupViewPager()
     }
 
-    private fun createPagerAdapter(): PagerAdapter {
-        val adapter = PagerAdapter(supportFragmentManager)
-        adapter.addFragment(ActiveShoppingListsFragment(), getString(R.string.active))
-        adapter.addFragment(ArchivedShoppingListsFragment(), getString(R.string.archived))
-        return adapter
-    }
-
     private fun setupViewPager() {
-        viewPager.offscreenPageLimit = 1
+        pagerAdapter.addFragment(ActiveShoppingListsFragment(), getString(R.string.active))
+        pagerAdapter.addFragment(ArchivedShoppingListsFragment(), getString(R.string.archived))
+        mViewDataBinding.viewPager.adapter = pagerAdapter
+        mViewDataBinding.viewPager.offscreenPageLimit = 1
     }
 
+    override fun getBindingVariable() = BR.viewModel
+
+    override fun getViewModel(): MainViewModel {
+        mainViewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
+        return mainViewModel
+    }
+
+    override fun getLayoutId() = R.layout.activity_main
 }

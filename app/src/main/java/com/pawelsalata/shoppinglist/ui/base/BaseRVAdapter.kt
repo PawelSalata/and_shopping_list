@@ -1,10 +1,11 @@
-package com.pawelsalata.shoppinglist.ui.components.recycler_view
+package com.pawelsalata.shoppinglist.ui.base
 
 import android.databinding.DataBindingUtil
 import android.databinding.ViewDataBinding
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import com.pawelsalata.shoppinglist.ui.components.recycler_view.ViewHolder
 
 /**
  * Created by LETTUCE on 30.12.2017.

@@ -4,7 +4,7 @@ import android.view.View
 import android.widget.EditText
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.data.entities.Item
-import com.pawelsalata.shoppinglist.ui.components.recycler_view.BaseRVAdapter
+import com.pawelsalata.shoppinglist.ui.base.BaseRVAdapter
 import com.pawelsalata.shoppinglist.ui.components.recycler_view.ViewHolder
 import kotlinx.android.synthetic.main.item_shopping_item.view.*
 
