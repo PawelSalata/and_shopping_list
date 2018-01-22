@@ -3,7 +3,9 @@ package com.pawelsalata.shoppinglist.di.module
 import android.app.Application
 import android.arch.persistence.room.Room
 import android.content.Context
+import android.content.res.Resources
 import com.pawelsalata.shoppinglist.data.AppDataManager
+import com.pawelsalata.shoppinglist.data.DataManager
 import com.pawelsalata.shoppinglist.data.database.AppDatabase
 import com.pawelsalata.shoppinglist.data.database.AppDbHelper
 import com.pawelsalata.shoppinglist.data.database.DbHelper
@@ -11,17 +13,24 @@ import com.pawelsalata.shoppinglist.di.DatabaseInfo
 import com.pawelsalata.shoppinglist.utils.AppConstants
 import dagger.Module
 import dagger.Provides
+import dagger.android.AndroidInjectionModule
+import dagger.android.support.AndroidSupportInjectionModule
 import javax.inject.Singleton
 
 /**
  * Created by LETTUCE on 17.01.2018.
  */
 @Module
-abstract class AppModule {
+(includes = arrayOf(AndroidInjectionModule::class, AndroidSupportInjectionModule::class))
+class AppModule {
 
     @Provides
     @Singleton
     fun provideContext(application: Application): Context = application
+
+    @Provides
+    @Singleton
+    fun provideResources(context: Context): Resources = context.resources
 
     @Provides
     @DatabaseInfo
@@ -36,9 +45,9 @@ abstract class AppModule {
 
     @Provides
     @Singleton
-    abstract fun provideDbHelper(appDatabase: AppDatabase): AppDbHelper
+    fun provideDbHelper(appDatabase: AppDatabase): DbHelper = AppDbHelper(appDatabase)
 
     @Provides
     @Singleton
-    abstract fun provideDataManager(dbHelper: DbHelper): AppDataManager
+    fun provideDataManager(dbHelper: DbHelper): DataManager = AppDataManager(dbHelper)
 }

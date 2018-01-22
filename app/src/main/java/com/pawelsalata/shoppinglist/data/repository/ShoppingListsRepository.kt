@@ -1,9 +1,12 @@
 package com.pawelsalata.shoppinglist.data.repository
 
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import com.pawelsalata.shoppinglist.data.dao.ShoppingListWithItemsDaoClass
 import com.pawelsalata.shoppinglist.data.database.AppDatabase
+import com.pawelsalata.shoppinglist.data.entities.Item
+import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 
 /**
@@ -32,8 +35,39 @@ object ShoppingListsRepository {
     }
 
     private fun getShoppingListDao(context: Context): ShoppingListWithItemsDaoClass {
-        return AppDatabase.getAppDatabase(context)
-                .getShoppingListWithItemsDao()
+        return object : ShoppingListWithItemsDaoClass() {
+            override fun _insert(shoppingList: ShoppingList) {
+
+            }
+
+            override fun _insertAll(items: List<Item>) {
+
+            }
+
+            override fun _update(shoppingList: ShoppingList) {
+
+            }
+
+            override fun _updateAll(items: List<Item>) {
+
+            }
+
+            override fun getAllShoppingListsWithItems(): LiveData<List<ShoppingListWithItems>> {
+                return MutableLiveData()
+            }
+
+            override fun getActiveShoppingListsWithItems(): LiveData<List<ShoppingListWithItems>> {
+                return MutableLiveData()
+            }
+
+            override fun getArchivedShoppingListsWithItems(): LiveData<List<ShoppingListWithItems>> {
+                return MutableLiveData()
+            }
+
+            override fun getShoppingList(id: Int): ShoppingListWithItems {
+                return ShoppingListWithItems()
+            }
+        }
     }
 
     fun getShoppingList(context: Context, shoppingListId: Int): ShoppingListWithItems {

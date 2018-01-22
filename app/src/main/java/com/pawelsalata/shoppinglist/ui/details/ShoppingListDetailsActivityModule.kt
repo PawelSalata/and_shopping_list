@@ -12,8 +12,8 @@ import dagger.Provides
 @Module
 class ShoppingListDetailsActivityModule {
 
-    @Provides
-    fun provideViewModel(activity: ShoppingListDetailsActivity) : ShoppingListDetailsViewModel {
-        return ViewModelProviders.of(activity).get(ShoppingListDetailsViewModel::class.java)
-    }
+//    @Provides
+//    fun provideViewModel(activity: ShoppingListDetailsActivity) : ShoppingListDetailsViewModel {
+//        return ViewModelProviders.of(activity).get(ShoppingListDetailsViewModel::class.java)
+//    }
 }

@@ -3,11 +3,12 @@ package com.pawelsalata.shoppinglist.ui.common
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
+import javax.inject.Inject
 
 /**
  * Created by LETTUCE on 29.12.2017.
  */
-class PagerAdapter(fm: FragmentManager) : FragmentPagerAdapter(fm) {
+class PagerAdapter @Inject constructor(fm: FragmentManager) : FragmentPagerAdapter(fm) {
     var fragments: MutableList<Fragment> = mutableListOf()
     var titles: MutableList<String> = mutableListOf()
 
