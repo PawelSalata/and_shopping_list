@@ -2,7 +2,7 @@ package com.pawelsalata.shoppinglist.data.repository
 
 import android.arch.lifecycle.LiveData
 import android.content.Context
-import com.pawelsalata.shoppinglist.data.dao.ShoppingListWithItemsDao
+import com.pawelsalata.shoppinglist.data.dao.ShoppingListWithItemsDaoClass
 import com.pawelsalata.shoppinglist.data.database.AppDatabase
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 
@@ -31,7 +31,7 @@ object ShoppingListsRepository {
         getShoppingListDao(context)._update(shoppingListWithItems.shoppingList)
     }
 
-    private fun getShoppingListDao(context: Context): ShoppingListWithItemsDao {
+    private fun getShoppingListDao(context: Context): ShoppingListWithItemsDaoClass {
         return AppDatabase.getAppDatabase(context)
                 .getShoppingListWithItemsDao()
     }

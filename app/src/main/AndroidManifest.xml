@@ -19,6 +19,7 @@
         </activity>
         <activity android:name=".ui.shopping_lists.details.editable.EditableShoppingListActivity" />
         <activity android:name=".ui.shopping_lists.details.show.ShowShoppingListActivity" />
+        <activity android:name=".ui.details.ShoppingListDetailsActivity" />
     </application>
 
 </manifest>

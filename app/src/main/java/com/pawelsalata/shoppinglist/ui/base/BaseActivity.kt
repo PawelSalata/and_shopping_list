@@ -7,7 +7,6 @@ import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v7.app.AppCompatActivity
 import android.view.inputmethod.InputMethodManager
-import dagger.android.AndroidInjection
 
 /**
  * Created by LETTUCE on 17.01.2018.
@@ -58,6 +57,6 @@ abstract class BaseActivity<T : ViewDataBinding, V : BaseViewModel<*>> : AppComp
     fun getViewBinding() = mViewDataBinding
 
     private fun performDependencyInjection() {
-        AndroidInjection.inject(this)
+//        AndroidInjection.inject(this)
     }
 }
