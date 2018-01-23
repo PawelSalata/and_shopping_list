@@ -28,6 +28,7 @@ android {
 ext.support_lib_version = '26.1.0'
 ext.leak_canary_version = '1.5.4'
 ext.dagger_version = '2.11'
+ext.anko_version='0.10.4'
 
 dependencies {
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
@@ -61,6 +62,8 @@ dependencies {
     implementation 'com.daimajia.swipelayout:library:1.2.0@aar'
     implementation 'com.getbase:floatingactionbutton:1.10.1'
 
+    //anko
+    implementation "org.jetbrains.anko:anko:$anko_version"
 
     //Leak Cannary
     debugImplementation "com.squareup.leakcanary:leakcanary-android:$leak_canary_version"

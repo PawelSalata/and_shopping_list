@@ -1,10 +1,7 @@
 package com.pawelsalata.shoppinglist.ui.main
 
-import android.arch.lifecycle.ViewModelProviders
-import android.content.Context
 import android.support.v4.app.FragmentManager
-import com.pawelsalata.shoppinglist.data.DataManager
-import com.pawelsalata.shoppinglist.ui.common.PagerAdapter
+import com.pawelsalata.shoppinglist.di.scopes.PerActivity
 import dagger.Module
 import dagger.Provides
 
@@ -15,6 +12,7 @@ import dagger.Provides
 class MainActivityModule {
 
     @Provides
+    @PerActivity
     fun provideFragmentManager(activity: MainActivity): FragmentManager {
         return activity.supportFragmentManager
     }

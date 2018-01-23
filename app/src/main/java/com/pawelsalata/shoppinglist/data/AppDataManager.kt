@@ -29,6 +29,10 @@ class AppDataManager @Inject constructor(val dbHelper: DbHelper) : DataManager {
         return dbHelper.saveShoppingList(shoppingList)
     }
 
+    override fun archiveList(shoppingList: ShoppingList): Observable<Boolean> {
+        return dbHelper.archiveList(shoppingList)
+    }
+
     override fun getActiveLists(): LiveData<List<ShoppingList>> {
         return dbHelper.getActiveLists()
     }

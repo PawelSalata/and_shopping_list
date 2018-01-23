@@ -9,7 +9,8 @@ import com.pawelsalata.shoppinglist.data.DataManager
 import com.pawelsalata.shoppinglist.data.database.AppDatabase
 import com.pawelsalata.shoppinglist.data.database.AppDbHelper
 import com.pawelsalata.shoppinglist.data.database.DbHelper
-import com.pawelsalata.shoppinglist.di.DatabaseInfo
+import com.pawelsalata.shoppinglist.di.qualifiers.ApplicationContext
+import com.pawelsalata.shoppinglist.di.qualifiers.DatabaseInfo
 import com.pawelsalata.shoppinglist.utils.AppConstants
 import dagger.Module
 import dagger.Provides
@@ -26,11 +27,12 @@ class AppModule {
 
     @Provides
     @Singleton
+    @ApplicationContext
     fun provideContext(application: Application): Context = application
 
     @Provides
     @Singleton
-    fun provideResources(context: Context): Resources = context.resources
+    fun provideResources(@ApplicationContext context: Context): Resources = context.resources
 
     @Provides
     @DatabaseInfo
@@ -38,7 +40,7 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideAppDatabase(@DatabaseInfo dbName: String, context: Context): AppDatabase {
+    fun provideAppDatabase(@ApplicationContext context: Context, @DatabaseInfo dbName: String): AppDatabase {
         return Room.databaseBuilder(context, AppDatabase::class.java, dbName).fallbackToDestructiveMigration()
                 .build()
     }

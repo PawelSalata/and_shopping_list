@@ -15,5 +15,5 @@ fun View.gone() {
 }
 
 fun Any.logd(message: String?) {
-    Log.d(javaClass.simpleName, message)
+    Log.d(javaClass.simpleName, "" + message)
 }

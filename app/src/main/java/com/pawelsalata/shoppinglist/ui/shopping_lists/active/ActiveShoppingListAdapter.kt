@@ -21,7 +21,7 @@ class ActiveShoppingListAdapter(shoppingLists: List<ShoppingListWithItems>, list
         val transitionListName = Pair.create(holder.itemView.listNameTV as View, ViewCompat.getTransitionName(holder.itemView.listNameTV))
         holder.itemView.cardView.setOnClickListener { listener.onShoppingListClick(shoppingLists[holder.adapterPosition], transitionListName) }
         holder.itemView.archiveBtnVG.setOnClickListener { listener.archiveList(shoppingLists[holder.adapterPosition]) }
-    }
+}
 
     override fun getLayoutIdForPosition(position: Int): Int {
         return R.layout.item_active_shopping_list

@@ -2,19 +2,11 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/apk/res-auto">
-
     <data>
-
         <import type="android.view.View" />
-
         <variable
             name="viewModel"
-            type="com.pawelsalata.shoppinglist.ui.shopping_lists.BaseShoppingListsViewModel" />
-
-        <variable
-            name="listener"
-            type="com.pawelsalata.shoppinglist.ui.shopping_lists.active.ActiveShoppingListsInterface.UserActions" />
-
+            type="com.pawelsalata.shoppinglist.ui.list.ShoppingListsViewModel" />
     </data>
 
     <android.support.constraint.ConstraintLayout
@@ -39,10 +31,10 @@
             android:layout_margin="16dp"
             app:fab_colorNormal="@color/colorAccent"
             android:src="@drawable/ic_note_add_white_24dp"
-            android:visibility="@{viewModel.isAddListFABVisible() ? View.VISIBLE : View.GONE}"
+            bind:visibility="@{viewModel.areListsActive()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            bind:onClick="@{(view) -> listener.onAddListClick(view)}" />
+            bind:onClick="@{(view) -> viewModel.onAddListClick()}" />
 
     </android.support.constraint.ConstraintLayout>
 </layout>

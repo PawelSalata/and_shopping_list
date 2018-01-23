@@ -1,10 +1,7 @@
 package com.pawelsalata.shoppinglist.data.dao
 
 import android.arch.lifecycle.LiveData
-import android.arch.persistence.room.Dao
-import android.arch.persistence.room.Insert
-import android.arch.persistence.room.Query
-import android.arch.persistence.room.Transaction
+import android.arch.persistence.room.*
 import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 
@@ -14,8 +11,11 @@ import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 @Dao
 abstract class ShoppingListDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg entities: ShoppingList)
+
+    @Update
+    abstract fun update(entity: ShoppingList)
 
     @Transaction
     @Query("SELECT * FROM shopping_lists WHERE archived = :archived ORDER BY timestamp DESC")

@@ -19,4 +19,6 @@ interface DbHelper {
     fun getActiveLists(): LiveData<List<ShoppingList>>
 
     fun getArchivedLists(): LiveData<List<ShoppingList>>
+
+    fun archiveList(shoppingList: ShoppingList): Observable<Boolean>
 }

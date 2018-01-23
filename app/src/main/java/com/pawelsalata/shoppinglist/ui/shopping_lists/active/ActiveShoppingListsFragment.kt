@@ -47,8 +47,8 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View, Sho
         ViewModelProviders.of(this, AndroidViewModelFactory(activity?.application))
                 .get(ActiveShoppingListsViewModel::class.java)
                 .also { viewModel = it }
-        viewBinding.viewModel = viewModel
-        viewBinding.listener = viewModel
+//        viewBinding.viewModel = viewModel
+//        viewBinding.listener = viewModel
         return viewBinding.root
     }
 
@@ -61,7 +61,7 @@ class ActiveShoppingListsFragment : Fragment(), ShoppingListsInterface.View, Sho
         super.onStart()
         viewModel.shoppingListsLiveData.observe(this, Observer { lists ->
             logd("List size: " + lists?.size)
-            shoppingListsAdapter.shoppingLists = lists ?: ArrayList()
+//            shoppingListsAdapter.shoppingLists = lists ?: ArrayList()
             shoppingListsAdapter.notifyDataSetChanged()
         })
     }

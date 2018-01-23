@@ -5,6 +5,8 @@ import android.support.design.widget.TabLayout
 import android.support.v4.view.ViewPager
 import android.view.View
 import com.pawelsalata.shoppinglist.ui.common.PagerAdapter
+import com.pawelsalata.shoppinglist.utils.extensions.gone
+import com.pawelsalata.shoppinglist.utils.extensions.visible
 
 /**
  * Created by LETTUCE on 29.12.2017.
@@ -27,5 +29,14 @@ object BindingAdapters {
     @BindingAdapter("bind:onClick")
     fun setOnClick(view: View, listener: View.OnClickListener) {
         view.setOnClickListener(listener)
+    }
+
+    @JvmStatic
+    @BindingAdapter("bind:visibility")
+    fun setVisibility(view: View, visible: Boolean) {
+        if (visible)
+            view.visible()
+        else
+            view.gone()
     }
 }

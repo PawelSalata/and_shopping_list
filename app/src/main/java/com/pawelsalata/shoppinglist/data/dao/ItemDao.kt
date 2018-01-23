@@ -2,6 +2,8 @@ package com.pawelsalata.shoppinglist.data.dao
 
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
+import android.arch.persistence.room.OnConflictStrategy
+import android.arch.persistence.room.Update
 import com.pawelsalata.shoppinglist.data.entities.Item
 
 /**
@@ -10,6 +12,9 @@ import com.pawelsalata.shoppinglist.data.entities.Item
 @Dao
 abstract class ItemDao {
 
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     abstract fun insert(vararg entities: Item)
+
+    @Update
+    abstract fun update(entity: Item)
 }

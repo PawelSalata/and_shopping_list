@@ -25,7 +25,6 @@ class ShoppingListDetailsActivity : BaseActivity<ActivityShoppingListDetailsBind
         detailsViewModel.init(intent.getIntExtra(ShowShoppingListActivity.EXTRA_SHOPPING_LIST_ID, -1))
     }
 
-
     override fun getBindingVariable(): Int = BR.viewModel
 
     override fun getViewModel(): ShoppingListDetailsViewModel = detailsViewModel

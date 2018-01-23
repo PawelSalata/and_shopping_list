@@ -12,7 +12,6 @@ import javax.inject.Singleton
  */
 @Singleton
 class AppDbHelper @Inject constructor(val appDatabase: AppDatabase) : DbHelper {
-
     override fun saveShoppingListWithItems(shoppingList: ShoppingListWithItems): Observable<Boolean> {
         return Observable.fromCallable {
             shoppingList.itemsList.forEach { it.shoppingListId = shoppingList.shoppingList.id }
@@ -29,6 +28,14 @@ class AppDbHelper @Inject constructor(val appDatabase: AppDatabase) : DbHelper {
     override fun saveShoppingList(shoppingList: ShoppingList): Observable<Boolean> {
         return Observable.fromCallable {
             appDatabase.getShoppingListDao().insert(shoppingList)
+            return@fromCallable true
+        }
+    }
+
+    override fun archiveList(shoppingList: ShoppingList): Observable<Boolean> {
+        return Observable.fromCallable {
+            shoppingList.archived = true
+            appDatabase.getShoppingListDao().update(shoppingList)
             return@fromCallable true
         }
     }

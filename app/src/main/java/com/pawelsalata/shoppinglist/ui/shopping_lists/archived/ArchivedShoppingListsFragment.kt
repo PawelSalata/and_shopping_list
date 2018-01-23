@@ -46,7 +46,7 @@ class ArchivedShoppingListsFragment : Fragment(), ShoppingListsInterface.UserAct
         ViewModelProviders.of(this, AndroidViewModelFactory(activity?.application))
                 .get(ArchivedShoppingListsViewModel::class.java)
                 .also { viewModel = it }
-        viewBinding.viewModel = viewModel
+//        viewBinding.viewModel = viewModel
         return viewBinding.root
     }
 

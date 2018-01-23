@@ -7,8 +7,10 @@ import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.databinding.ActivityMainBinding
 import com.pawelsalata.shoppinglist.ui.base.BaseActivity
 import com.pawelsalata.shoppinglist.ui.common.PagerAdapter
+import com.pawelsalata.shoppinglist.ui.list.ShoppingListsFragment
 import com.pawelsalata.shoppinglist.ui.shopping_lists.active.ActiveShoppingListsFragment
 import com.pawelsalata.shoppinglist.ui.shopping_lists.archived.ArchivedShoppingListsFragment
+import com.pawelsalata.shoppinglist.utils.ShoppingListState
 import javax.inject.Inject
 
 class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainActivityNavigator {
@@ -26,8 +28,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainAct
     }
 
     private fun setupViewPager() {
-        pagerAdapter.addFragment(ActiveShoppingListsFragment(), getString(R.string.active))
-        pagerAdapter.addFragment(ArchivedShoppingListsFragment(), getString(R.string.archived))
+        pagerAdapter.addFragment(ShoppingListsFragment.getInstance(ShoppingListState.ACTIVE), getString(R.string.active))
+        pagerAdapter.addFragment(ShoppingListsFragment.getInstance(ShoppingListState.ARCHIVED), getString(R.string.archived))
         mViewDataBinding.viewPager.adapter = pagerAdapter
         mViewDataBinding.viewPager.offscreenPageLimit = 1
     }
