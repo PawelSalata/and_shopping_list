@@ -39,6 +39,8 @@ class ShoppingListsViewModel @Inject constructor(dataManager: DataManager):
 
     override fun onArchiveListClick(shoppingList: ShoppingList) {
         dataManager.archiveList(shoppingList)
+                .subscribeOn(Schedulers.io())
+                .subscribe()
     }
 
     fun areListsActive(): Boolean {

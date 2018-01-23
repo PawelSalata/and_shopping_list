@@ -4,12 +4,9 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
-        <!--<import type="com.pawelsalata.shoppinglist.utils.extensions.LongExKt" />-->
-        <!--<import type="com.pawelsalata.shoppinglist.utils.DateUtils"/>-->
         <variable
             name="obj"
-            type="com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems" />
+            type="com.pawelsalata.shoppinglist.data.entities.ShoppingList" />
     </data>
 
     <RelativeLayout
@@ -51,7 +48,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="5dp"
-                        android:text="@{obj.shoppingList.name}"
+                        android:text="@{obj.name}"
                         android:textColor="@color/valuesBlack"
                         android:textSize="22sp"
                         android:textStyle="bold"
@@ -64,7 +61,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@{obj.shoppingList.getFriendlyDate()}"
+                        android:text="@{obj.getFriendlyDate()}"
                         android:textColor="@color/lightGrey"
                         android:textSize="13sp"
                         app:layout_constraintEnd_toEndOf="parent"

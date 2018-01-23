@@ -1,6 +1,7 @@
 package com.pawelsalata.shoppinglist.ui.details
 
 import android.arch.lifecycle.LiveData
+import android.arch.lifecycle.MutableLiveData
 import android.databinding.Bindable
 import android.databinding.Observable
 import com.pawelsalata.shoppinglist.data.DataManager
@@ -14,7 +15,7 @@ import javax.inject.Inject
 class ShoppingListDetailsViewModel @Inject constructor(dataManager: DataManager) :
         BaseViewModel<ShoppingListDetailsNavigator>(dataManager), Observable {
 
-    lateinit var shoppingListLiveData: LiveData<ShoppingListWithItems>
+    var shoppingListLiveData: LiveData<ShoppingListWithItems> = MutableLiveData()
 
     fun init(shoppingListId: Int) {
         shoppingListLiveData = dataManager.getShoppingListWithItems(shoppingListId)

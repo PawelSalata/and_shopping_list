@@ -16,11 +16,13 @@ import kotlinx.android.synthetic.main.item_active_shopping_list.view.*
  */
 class ShoppingListsAdapter : BaseRVAdapter() {
 
-    var shoppingLists: List<ShoppingList> = ArrayList()
+    var shoppingLists: MutableList<ShoppingList> = ArrayList()
     lateinit var listener: UserActions
 
     fun updateList(newList: List<ShoppingList>) {
         val diffResult = DiffUtil.calculateDiff(DiffCallback(shoppingLists, newList))
+        shoppingLists.clear()
+        shoppingLists.addAll(newList)
         diffResult.dispatchUpdatesTo(this)
     }
 
