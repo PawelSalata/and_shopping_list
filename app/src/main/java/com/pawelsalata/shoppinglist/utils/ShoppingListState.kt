@@ -1,7 +1,5 @@
 package com.pawelsalata.shoppinglist.utils
 
-import com.pawelsalata.shoppinglist.R.string.archived
-
 /**
  * Created by LETTUCE on 23.01.2018.
  */

@@ -1,7 +1,6 @@
 package com.pawelsalata.shoppinglist.ui.list
 
 import android.arch.lifecycle.LiveData
-import android.databinding.Bindable
 import android.databinding.Observable
 import android.support.v4.util.Pair
 import android.view.View

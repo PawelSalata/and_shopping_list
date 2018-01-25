@@ -1,6 +1,5 @@
 package com.pawelsalata.shoppinglist.ui.main
 
-import android.arch.lifecycle.ViewModel
 import com.pawelsalata.shoppinglist.data.DataManager
 import com.pawelsalata.shoppinglist.ui.base.BaseViewModel
 import javax.inject.Inject

@@ -5,7 +5,6 @@ import com.pawelsalata.shoppinglist.BR
 import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.databinding.ActivityShoppingListDetailsBinding
 import com.pawelsalata.shoppinglist.ui.base.BaseActivity
-import com.pawelsalata.shoppinglist.ui.shopping_lists.details.show.ShowShoppingListActivity
 import javax.inject.Inject
 
 /**

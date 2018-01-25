@@ -3,7 +3,6 @@ package com.pawelsalata.shoppinglist.data.dao
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
 import com.pawelsalata.shoppinglist.data.entities.ShoppingList
-import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 
 /**
  * Created by LETTUCE on 22.01.2018.

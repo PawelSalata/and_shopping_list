@@ -4,7 +4,6 @@ import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
 import android.content.Context
 import com.pawelsalata.shoppinglist.data.dao.ShoppingListWithItemsDaoClass
-import com.pawelsalata.shoppinglist.data.database.AppDatabase
 import com.pawelsalata.shoppinglist.data.entities.Item
 import com.pawelsalata.shoppinglist.data.entities.ShoppingList
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
