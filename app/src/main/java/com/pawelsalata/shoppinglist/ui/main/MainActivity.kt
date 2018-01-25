@@ -30,8 +30,8 @@ class MainActivity : BaseActivity<ActivityMainBinding, MainViewModel>(), MainAct
     private fun setupViewPager() {
         pagerAdapter.addFragment(ShoppingListsFragment.getInstance(ShoppingListState.ACTIVE), getString(R.string.active))
         pagerAdapter.addFragment(ShoppingListsFragment.getInstance(ShoppingListState.ARCHIVED), getString(R.string.archived))
-        mViewDataBinding.viewPager.adapter = pagerAdapter
-        mViewDataBinding.viewPager.offscreenPageLimit = 1
+        getViewBinding().viewPager.adapter = pagerAdapter
+        getViewBinding().viewPager.offscreenPageLimit = 1
     }
 
     override fun getBindingVariable() = BR.viewModel

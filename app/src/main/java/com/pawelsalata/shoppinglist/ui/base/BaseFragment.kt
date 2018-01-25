@@ -13,10 +13,10 @@ import dagger.android.support.AndroidSupportInjection
 /**
  * Created by LETTUCE on 22.01.2018.
  */
-abstract class BaseFragment<T : ViewDataBinding, V: BaseViewModel<*>> : Fragment() {
+abstract class BaseFragment<T : ViewDataBinding, out V: BaseViewModel<*>> : Fragment() {
 
-    protected lateinit var mViewDataBinding: T
-    protected var mViewModel: V? = null
+    private lateinit var mViewDataBinding: T
+    private var mViewModel: V? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         performDependencyInjection()
@@ -53,6 +53,7 @@ abstract class BaseFragment<T : ViewDataBinding, V: BaseViewModel<*>> : Fragment
     @LayoutRes
     abstract fun getLayoutId(): Int
 
+    fun getViewBinding() = mViewDataBinding
 
     private fun performDependencyInjection() {
         AndroidSupportInjection.inject(this)

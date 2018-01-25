@@ -60,15 +60,15 @@ class ShoppingListsFragment: BaseFragment<FragmentShoppingListsBinding, Shopping
         val options = ActivityOptionsCompat.
                 makeSceneTransitionAnimation(activity as MainActivity, transition)
         activity?.launchActivity<ShoppingListDetailsActivity>(options.toBundle()) {
-//            putExtra(ShoppingListDetailsActivity.EXTRA_SHOPPING_LIST_ID, shoppingList.id)
-//            putExtra(ShoppingListDetailsActivity.EXTRA_SHOPPING_LIST_NAME, shoppingList.name)
+            putExtra(ShoppingListDetailsActivity.EXTRA_SHOPPING_LIST_ID, shoppingList.id)
+            putExtra(ShoppingListDetailsActivity.EXTRA_SHOPPING_LIST_NAME, shoppingList.name)
         }
     }
 
     private fun setup() {
-        mViewDataBinding.shoppingListsRV.adapter = shoppingListsAdapter
-        mViewDataBinding.shoppingListsRV.layoutManager = layoutManager
-        mViewDataBinding.shoppingListsRV.addItemDecoration(RecyclerViewMargin(40, shoppingListsAdapter.itemCount, layoutManager.orientation))
+        getViewBinding().shoppingListsRV.adapter = shoppingListsAdapter
+        getViewBinding().shoppingListsRV.layoutManager = layoutManager
+        getViewBinding().shoppingListsRV.addItemDecoration(RecyclerViewMargin(40, shoppingListsAdapter.itemCount, layoutManager.orientation))
     }
 
     private fun observeData() {

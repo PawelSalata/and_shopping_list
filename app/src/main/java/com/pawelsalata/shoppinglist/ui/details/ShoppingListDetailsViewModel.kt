@@ -7,6 +7,7 @@ import android.databinding.Observable
 import com.pawelsalata.shoppinglist.data.DataManager
 import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
 import com.pawelsalata.shoppinglist.ui.base.BaseViewModel
+import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
 /**
@@ -22,7 +23,17 @@ class ShoppingListDetailsViewModel @Inject constructor(dataManager: DataManager)
     }
 
     @Bindable
-    fun isListActive(): Boolean = shoppingListLiveData.value?.shoppingList?.archived?.not() != false
+    fun isListActive(): Boolean = shoppingListLiveData.value?.shoppingList?.archived?.not() == true
+
+    fun saveList() {
+        if (isListActive()) {
+            shoppingListLiveData.value?.let {
+                dataManager.saveShoppingListWithItems(it)
+                        .subscribeOn(Schedulers.io())
+                        .subscribe()
+            }
+        }
+    }
 
     override fun removeOnPropertyChangedCallback(callback: Observable.OnPropertyChangedCallback?) {
     }
