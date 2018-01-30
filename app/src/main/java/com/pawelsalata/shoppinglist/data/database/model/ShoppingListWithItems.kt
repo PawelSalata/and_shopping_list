@@ -1,9 +1,9 @@
-package com.pawelsalata.shoppinglist.data.model
+package com.pawelsalata.shoppinglist.data.database.model
 
 import android.arch.persistence.room.Embedded
 import android.arch.persistence.room.Relation
-import com.pawelsalata.shoppinglist.data.entities.Item
-import com.pawelsalata.shoppinglist.data.entities.ShoppingList
+import com.pawelsalata.shoppinglist.data.database.entities.Item
+import com.pawelsalata.shoppinglist.data.database.entities.ShoppingList
 
 /**
  * Created by LETTUCE on 29.12.2017.

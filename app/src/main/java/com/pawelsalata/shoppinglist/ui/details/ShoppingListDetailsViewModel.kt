@@ -5,7 +5,7 @@ import android.arch.lifecycle.MutableLiveData
 import android.databinding.Bindable
 import android.databinding.Observable
 import com.pawelsalata.shoppinglist.data.DataManager
-import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
+import com.pawelsalata.shoppinglist.data.database.model.ShoppingListWithItems
 import com.pawelsalata.shoppinglist.ui.base.BaseViewModel
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject

@@ -5,7 +5,7 @@ import android.support.v4.view.ViewCompat
 import android.support.v7.util.DiffUtil
 import android.view.View
 import com.pawelsalata.shoppinglist.R
-import com.pawelsalata.shoppinglist.data.entities.ShoppingList
+import com.pawelsalata.shoppinglist.data.database.entities.ShoppingList
 import com.pawelsalata.shoppinglist.ui.base.BaseRVAdapter
 import com.pawelsalata.shoppinglist.ui.components.recycler_view.ViewHolder
 import com.pawelsalata.shoppinglist.utils.DiffCallback

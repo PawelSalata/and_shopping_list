@@ -1,4 +1,4 @@
-package com.pawelsalata.shoppinglist.data.entities
+package com.pawelsalata.shoppinglist.data.database.entities
 
 import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey

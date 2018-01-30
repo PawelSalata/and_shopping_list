@@ -8,7 +8,7 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.View
 import com.pawelsalata.shoppinglist.BR
 import com.pawelsalata.shoppinglist.R
-import com.pawelsalata.shoppinglist.data.entities.ShoppingList
+import com.pawelsalata.shoppinglist.data.database.entities.ShoppingList
 import com.pawelsalata.shoppinglist.databinding.FragmentShoppingListsBinding
 import com.pawelsalata.shoppinglist.ui.base.BaseFragment
 import com.pawelsalata.shoppinglist.ui.components.RecyclerViewMargin

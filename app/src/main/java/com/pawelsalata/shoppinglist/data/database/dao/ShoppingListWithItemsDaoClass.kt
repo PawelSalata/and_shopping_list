@@ -1,10 +1,10 @@
-package com.pawelsalata.shoppinglist.data.dao
+package com.pawelsalata.shoppinglist.data.database.dao
 
 import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.*
-import com.pawelsalata.shoppinglist.data.entities.Item
-import com.pawelsalata.shoppinglist.data.entities.ShoppingList
-import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
+import com.pawelsalata.shoppinglist.data.database.entities.Item
+import com.pawelsalata.shoppinglist.data.database.entities.ShoppingList
+import com.pawelsalata.shoppinglist.data.database.model.ShoppingListWithItems
 
 /**
  * Created by LETTUCE on 29.12.2017.

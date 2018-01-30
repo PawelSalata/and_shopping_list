@@ -2,7 +2,7 @@ package com.pawelsalata.shoppinglist.ui.list
 
 import android.support.v4.util.Pair
 import android.view.View
-import com.pawelsalata.shoppinglist.data.entities.ShoppingList
+import com.pawelsalata.shoppinglist.data.database.entities.ShoppingList
 
 /**
  * Created by LETTUCE on 22.01.2018.

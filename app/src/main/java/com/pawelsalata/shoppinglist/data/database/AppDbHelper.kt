@@ -1,8 +1,8 @@
 package com.pawelsalata.shoppinglist.data.database
 
 import android.arch.lifecycle.LiveData
-import com.pawelsalata.shoppinglist.data.entities.ShoppingList
-import com.pawelsalata.shoppinglist.data.model.ShoppingListWithItems
+import com.pawelsalata.shoppinglist.data.database.entities.ShoppingList
+import com.pawelsalata.shoppinglist.data.database.model.ShoppingListWithItems
 import io.reactivex.Observable
 import javax.inject.Inject
 import javax.inject.Singleton
