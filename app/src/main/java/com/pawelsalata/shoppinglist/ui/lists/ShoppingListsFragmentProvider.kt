@@ -1,4 +1,4 @@
-package com.pawelsalata.shoppinglist.ui.list
+package com.pawelsalata.shoppinglist.ui.lists
 
 import com.pawelsalata.shoppinglist.di.scopes.PerFragment
 import dagger.Module

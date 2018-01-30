@@ -1,4 +1,4 @@
-package com.pawelsalata.shoppinglist.ui.list
+package com.pawelsalata.shoppinglist.ui.lists
 
 import android.arch.lifecycle.LiveData
 import android.databinding.Observable

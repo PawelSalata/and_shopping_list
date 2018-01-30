@@ -23,7 +23,7 @@ class ShoppingListDetailsViewModel @Inject constructor(dataManager: DataManager)
     }
 
     @Bindable
-    fun isListActive(): Boolean = shoppingListLiveData.value?.shoppingList?.archived?.not() == true
+    fun isListActive(): Boolean = shoppingListLiveData.value?.shoppingList?.archived == false
 
     fun saveList() {
         if (isListActive()) {

@@ -6,7 +6,7 @@ import com.pawelsalata.shoppinglist.R
 import com.pawelsalata.shoppinglist.databinding.ActivityMainBinding
 import com.pawelsalata.shoppinglist.ui.base.BaseActivity
 import com.pawelsalata.shoppinglist.ui.common.PagerAdapter
-import com.pawelsalata.shoppinglist.ui.list.ShoppingListsFragment
+import com.pawelsalata.shoppinglist.ui.lists.ShoppingListsFragment
 import com.pawelsalata.shoppinglist.utils.ShoppingListState
 import javax.inject.Inject
 

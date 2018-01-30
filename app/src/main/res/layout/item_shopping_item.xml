@@ -4,7 +4,7 @@
     <data>
         <variable
             name="obj"
-            type="com.pawelsalata.shoppinglist.data.entities.Item" />
+            type="com.pawelsalata.shoppinglist.data.database.entities.Item" />
     </data>
 
 
